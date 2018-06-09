@@ -2,9 +2,13 @@
 
 This project was created as assignment for job application!
 
+# Getting Project
+
+Git clone https://github.com/RedzepovicSanin/RubiconProject to your folder and open it.
+
 # Installing packages
 
-Run `npm install`. After all modules are installed, run server!
+Run `npm install` in your terminal. After all modules are installed, run server!
 
 ## Development server
 

@@ -1,0 +1,13 @@
+<div style="cursor: pointer; border: 1px solid black; margin-bottom: 10px;" 
+    [routerLink]="['/tvshows', tvshow.id]">
+    <div>
+        <img style="display: block; margin: 10px auto"
+            [src]="'https://image.tmdb.org/t/p/w185'+tvshow.poster_path" alt="tvshow.name">
+    </div>
+    <div class="text-center">
+        <span style="color:mediumturquoise">{{tvshow.name}}</span>
+    </div>
+    <div class="text-center">
+        Rating: <span style="font-weight: 300; font-style: bold;">{{tvshow.vote_average}}</span>
+    </div>
+</div>

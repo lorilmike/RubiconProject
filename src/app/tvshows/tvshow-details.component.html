@@ -1,0 +1,12 @@
+<div class="container fluid" style="margin-top: 50px;">
+        <div>
+            <button type="button" (click)='onBack()' class="btn btn-default btn-sm">
+                    <i class="fas fa-angle-left" style="font-size: 20px;"></i><span style="font-size: 20px; margin-left: 5px;">Back</span>
+            </button>
+        </div>
+        <img [src]="'https://image.tmdb.org/t/p/w500'+tvshow.backdrop_path" alt="{{tvshow.name}}">
+        <h2 style="padding: 5px;">{{tvshow.name}}</h2>
+        <span style="font-weight: 500; margin-top: 15px;">TV Show overview:</span>
+        <br>
+        <p>{{tvshow.overview}}</p>
+    </div>

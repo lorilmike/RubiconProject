@@ -11,7 +11,7 @@ export class TvShowGuardService implements CanActivate {
         const id = +route.url[1].path;
 
         if (isNaN(id) || id < 1) {
-            alert('Invalid tv show Id!');
+            alert('Invalid tv show ID!');
             this.router.navigate(['/tvshows']);
             return false;
         }

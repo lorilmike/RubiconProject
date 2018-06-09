@@ -3,24 +3,24 @@ import { DataService } from '../shared/data.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
-  templateUrl: './movie-details.component.html'
+  templateUrl: './tvshow-details.component.html'
 })
 
-export class MovieDetailsComponent implements OnInit {
-  movie;
+export class TvShowDetailsComponent implements OnInit {
+  tvshow;
 
   constructor(private dataService: DataService,
               private route: ActivatedRoute,
               private router: Router) { }
 
   onBack() {
-    this.router.navigate(['/movies']);
+    this.router.navigate(['/tvshows']);
   }
 
   ngOnInit() {
-    // showing specific movie
+    // showing specific tv show
     this.route.data.forEach((data) => {
-        this.movie = data['movie'];
+        this.tvshow = data['tvshow'];
     });
   }
 }

@@ -12,11 +12,18 @@ import { MovieThumbnailComponent } from './movies/movie-thumbnail.component';
 import { MovieDetailsComponent } from './movies/movie-details.component';
 
 import { TvShowsComponent } from './tvshows/tvshows.component';
-import { TvShowDetailComponent } from './tvshows/tvshow-detail.component';
+import { TvShowDetailsComponent } from './tvshows/tvshow-details.component';
+import { TvShowThumbnailComponent } from './tvshows/tvshow-thumbnail.component';
 
 import { DataService } from './shared/data.service';
+
 import { MoviesResolverService } from './movies/movies-resolver.service';
 import { MovieResolverService } from './movies/movie-resolver.service';
+
+import { TvShowsResolverService } from './tvshows/tvshows-resolver.service';
+import { TvShowResolverService } from './tvshows/tvshow-resolver.service';
+import { TvShowGuardService } from './tvshows/tvshow-guard.service';
+import { MovieGuardService } from './movies/movie-guard.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,8 @@ import { MovieResolverService } from './movies/movie-resolver.service';
     MovieDetailsComponent,
     MovieThumbnailComponent,
     TvShowsComponent,
-    TvShowDetailComponent,
+    TvShowDetailsComponent,
+    TvShowThumbnailComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +45,11 @@ import { MovieResolverService } from './movies/movie-resolver.service';
   providers: [
     DataService,
     MoviesResolverService,
-    MovieResolverService
+    MovieResolverService,
+    MovieGuardService,
+    TvShowsResolverService,
+    TvShowResolverService,
+    TvShowGuardService,
   ],
   bootstrap: [AppComponent]
 })

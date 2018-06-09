@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { IMovie } from '../movies/movie.model';
+import { ITvShow } from '../tvshows/tvshow';
 
 @Injectable()
 
@@ -21,6 +22,14 @@ export class DataService {
   getMovie(id: number): Observable<any> {
     return this.http.get(`https://api.themoviedb.org/3/movie/` + id + `?api_key=${this.apiKey}`)
                     .pipe(catchError(this.handleError<any>('getMovie')));
+  }
+  getTvshows() {
+    return this.http.get<ITvShow[]>(`https://api.themoviedb.org/3/tv/top_rated?api_key=${this.apiKey}`)
+               .pipe(catchError(this.handleError<ITvShow[]>('getTvshows', [])));
+  }
+  getTvshow(id: number) {
+    return this.http.get(`https://api.themoviedb.org/3/tv/` + id + `?api_key=${this.apiKey}`)
+                    .pipe(catchError(this.handleError<any>('getTvshow')));
   }
   // method for searching through shown data
   search<T>(searchTerm: string): Observable<T> {
