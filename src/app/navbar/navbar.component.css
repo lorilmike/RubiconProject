@@ -1,0 +1,14 @@
+.main {
+    margin-top: 50px;
+}
+li {
+    padding: 5px;
+    margin-right: 10px;
+}
+input {
+    width: 90%;
+    padding: 6px;
+}
+.active {
+    color: red;
+}

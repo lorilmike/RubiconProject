@@ -2,6 +2,10 @@
 
 This project was created as assignment for job application!
 
+# Installing packages
+
+Run `npm install`. After all modules are installed, run server!
+
 ## Development server
 
 Run `npm start` for a dev server. Default browser will open with `http://localhost:4200/`.

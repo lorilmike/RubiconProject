@@ -1,0 +1,9 @@
+<div [routerLink]="['/movies', movie.id]">
+    <div>
+        <img style="border: 1px solid black; display: block; margin-left: auto; margin-right: auto"
+            [src]="'https://image.tmdb.org/t/p/w185'+movie.poster_path" alt="movie.title">
+    </div>
+    <div class="text-center" style="border: 1px solid black; margin-bottom: 10px;">
+        {{movie.title}}
+    </div>
+</div>
