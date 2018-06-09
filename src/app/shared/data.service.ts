@@ -18,6 +18,10 @@ export class DataService {
     return this.http.get<IMovie[]>(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.apiKey}`)
                .pipe(catchError(this.handleError<IMovie[]>('getMovies', [])));
   }
+  getMovie(id: number): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/movie/` + id + `?api_key=${this.apiKey}`)
+                    .pipe(catchError(this.handleError<any>('getMovie')));
+  }
   // method for searching through shown data
   search<T>(searchTerm: string): Observable<T> {
     if (this.activatedRoute.snapshot.url['/movies']) {

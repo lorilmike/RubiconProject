@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { IMovie } from './movie.model';
 
 @Component({
     selector: 'app-movie-thumbnail',
@@ -8,5 +7,5 @@ import { IMovie } from './movie.model';
 })
 
 export class MovieThumbnailComponent {
-    @Input() movie: IMovie;
+    @Input() movie;
 }

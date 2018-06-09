@@ -11,7 +11,7 @@ import { IMovie } from '../movies/movie.model';
 })
 export class MoviesComponent implements OnInit {
   movies;
-  tenMovies: any[] = [];
+  tenMovies: any[];
 
   constructor(private dataService: DataService,
               private route: ActivatedRoute) {
@@ -20,6 +20,6 @@ export class MoviesComponent implements OnInit {
   ngOnInit() {
     this.movies = this.route.snapshot.data['movies']; // used for getting data through resolve service
     this.tenMovies = this.movies.results;
-    console.log(this.tenMovies);
+    this.tenMovies = this.tenMovies.slice(0, 10);
   }
 }
