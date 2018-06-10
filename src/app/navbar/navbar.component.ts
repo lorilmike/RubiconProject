@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../shared/data.service';
+import { Router } from '@angular/router';
+import { NavbarService } from '../shared/navbar.service';
 
 @Component({
     selector: 'app-navbar',
@@ -12,8 +14,10 @@ export class NavBarComponent {
     searchTerm = '';
     foundData: any;
     movies;
+    show = true;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService,
+              public nav: NavbarService) {}
 
   search(searchTerm: string) {
     if (searchTerm.length >= 3) {
@@ -22,4 +26,4 @@ export class NavBarComponent {
       });
     }
   }
- }
+}

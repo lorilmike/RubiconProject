@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../shared/data.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { NavbarService } from '../shared/navbar.service';
 
 @Component({
   templateUrl: './tvshow-details.component.html'
@@ -11,10 +12,12 @@ export class TvShowDetailsComponent implements OnInit {
 
   constructor(private dataService: DataService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private nav: NavbarService) { }
 
   onBack() {
     this.router.navigate(['/tvshows']);
+    this.nav.show();
   }
 
   ngOnInit() {

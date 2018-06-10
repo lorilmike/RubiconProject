@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../shared/data.service';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { NavbarService } from '../shared/navbar.service';
 
 @Component({
   templateUrl: './movie-details.component.html'
@@ -9,12 +9,13 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 export class MovieDetailsComponent implements OnInit {
   movie;
 
-  constructor(private dataService: DataService,
-              private route: ActivatedRoute,
-              private router: Router) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private nav: NavbarService) { }
 
   onBack() {
     this.router.navigate(['/movies']);
+    this.nav.show();
   }
 
   ngOnInit() {
