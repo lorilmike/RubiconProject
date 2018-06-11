@@ -16,7 +16,7 @@ import { TvShowDetailsComponent } from './tvshows/tvshow-details.component';
 import { TvShowThumbnailComponent } from './tvshows/tvshow-thumbnail.component';
 
 import { DataService } from './shared/data.service';
-import { NavbarService } from './shared/navbar.service';
+import { NavbarService } from './navbar/navbar.service';
 
 import { MoviesResolverService } from './movies/movies-resolver.service';
 import { MovieResolverService } from './movies/movie-resolver.service';
@@ -25,6 +25,7 @@ import { MovieGuardService } from './movies/movie-guard.service';
 import { TvShowsResolverService } from './tvshows/tvshows-resolver.service';
 import { TvShowResolverService } from './tvshows/tvshow-resolver.service';
 import { TvShowGuardService } from './tvshows/tvshow-guard.service';
+import { FilterPipe } from './shared/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TvShowGuardService } from './tvshows/tvshow-guard.service';
     MovieThumbnailComponent,
     TvShowsComponent,
     TvShowDetailsComponent,
-    TvShowThumbnailComponent
+    TvShowThumbnailComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,14 @@
 <div class="container" style="margin-top: 50px">
-  <h1 style="margin-top: 20px;">Top 10 TV Shows</h1>
+  <h1 *ngIf="tenTvshows && showTvshows" style="margin-top: 20px;">Top 10 TV Shows</h1>
+  <h1 *ngIf="searchedTvshows" style="margin-top: 20px;">Searched TV Shows</h1>
   <hr>
-    <div class="row">
-      <div class="col-md-6" *ngFor="let tvshow of tenTvshows">
+  <div class="row" *ngIf="searchedTvshows">
+    <div class="col-md-6" *ngFor="let tvshow of searchedTvshows">
+      <app-tvshow-thumbnail (click)="clicked()" [tvshow]='tvshow'></app-tvshow-thumbnail>
+    </div>
+  </div>
+  <div class="row" *ngIf="tenTvshows && showTvshows">
+    <div class="col-md-6"  *ngFor="let tvshow of tenTvshows">
       <app-tvshow-thumbnail (click)="clicked()" [tvshow]='tvshow'></app-tvshow-thumbnail>
     </div>
   </div>

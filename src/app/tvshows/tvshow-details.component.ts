@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../shared/data.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { NavbarService } from '../shared/navbar.service';
+import { NavbarService } from '../navbar/navbar.service';
 
 @Component({
   templateUrl: './tvshow-details.component.html'

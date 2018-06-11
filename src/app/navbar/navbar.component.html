@@ -13,8 +13,8 @@
         </div>
     </nav>
     <div>       
-        <form id="searchForm" (ngSubmit)="search(searchTerm)" class="navbar-form navbar-right">
-            <input [(ngModel)]="searchTerm" type="text" placeholder="Search.." name="searchTerm">
+        <form id="searchForm" (ngSubmit)="search(searchedTerm)" class="navbar-form navbar-right">
+            <input [(ngModel)]="searchedTerm" type="text" placeholder="Search.." name="searchedTerm">
             <button class="btn btn-primary">
                     Search
             </button>

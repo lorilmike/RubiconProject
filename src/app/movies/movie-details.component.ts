@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { NavbarService } from '../shared/navbar.service';
+import { NavbarService } from '../navbar/navbar.service';
 
 @Component({
   templateUrl: './movie-details.component.html'
