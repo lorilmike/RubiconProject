@@ -1,6 +1,6 @@
 <div class="container" style="margin-top: 50px">
   <h2 *ngIf="tenMovies && showMovies">Top 10 Movies</h2>
-  <h2 *ngIf="searchedMovies && term.length >= 3">Searched Results</h2>
+  <h2 *ngIf="searchedMovies && term.length >= 3">Search Results</h2>
   
   <div class="row" *ngIf="searchedMovies && term.length >= 3">
     <div class="col-md-3" *ngFor="let movie of searchedMovies | valueArray">

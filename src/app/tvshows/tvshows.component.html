@@ -1,6 +1,6 @@
 <div class="container" style="margin-top: 50px">
   <h2 *ngIf="tenTvshows && showTvshows">Top 10 TV Shows</h2>
-  <h2 *ngIf="searchedTvshows && term.length >= 3">Searched Results</h2>
+  <h2 *ngIf="searchedTvshows && term.length >= 3">Search Results</h2>
   
   <div class="row" *ngIf="searchedTvshows && term.length >= 3">
     <div class="col-md-3" *ngFor="let tvshow of searchedTvshows">
