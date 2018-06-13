@@ -1,4 +1,4 @@
-<div class="main" style="margin-top: 50px; background-color: #fcfafa; width: 502px;" >
+<div *ngIf="tvshow.backdrop_path" class="main" style="margin-top: 50px; background-color: #fcfafa; width: 502px;" >
     <div class="button" (click)="onBack()">
             <i class="fas fa-angle-left" style="font-size: 20px;"></i><span style="font-size: 20px; margin-left: 5px;">Back</span>
     </div>
@@ -11,5 +11,12 @@
         <span style="padding: 5px;"><app-star [rating]='tvshow.vote_average'></app-star></span>
         <p class="overview">{{tvshow.overview}}</p>
     </div>
+</div>
+
+<div *ngIf="!tvshow.backdrop_path" class="main" style="margin-top: 50px; background-color: #fcfafa; width: 502px;">
+        <div class="button" (click)="onBack()">
+                <i class="fas fa-angle-left" style="font-size: 20px;"></i><span style="font-size: 20px; margin-left: 5px;">Back</span>
+        </div>
+        <h4 style="margin-top: 50px;">Not enough details. Maybe check some other tv show?</h4>
 </div>
    
