@@ -1,12 +1,14 @@
-<div class="container fluid" style="margin-top: 50px;">
-    <div>
-        <button type="button" (click)='onBack()' class="btn btn-default btn-sm">
-                <i class="fas fa-angle-left" style="font-size: 20px;"></i><span style="font-size: 20px; margin-left: 5px;">Back</span>
-        </button>
+<div class="main" style="margin-top: 50px; background-color: #fcfafa; width: 502px;" >
+    <div class="button" (click)="onBack()">
+            <i class="fas fa-angle-left" style="font-size: 20px;"></i><span style="font-size: 20px; margin-left: 5px;">Back</span>
     </div>
-    <img [src]="'https://image.tmdb.org/t/p/w500'+movie.backdrop_path" alt="{{movie.title}}">
-    <h2 style="padding: 5px;">{{movie.title}}</h2>
-    <span style="font-weight: 500; margin-top: 15px;">Movie overview:</span>
-    <br>
-    <p>{{movie.overview}}</p>
+    <div class="card">
+        <img *ngIf="trailerLink === false" [src]="'https://image.tmdb.org/t/p/w500'+movie.backdrop_path" 
+            [width]="500" alt="{{movie.title}}">
+        <iframe *ngIf="trailerLink" [width]="500" [height]="315" [src]="'https://www.youtube.com/embed/'+trailerLink | safe"
+                frameborder="0" allowfullscreen></iframe>
+        <h5 class="title">{{movie.title}}</h5>
+        <span style="padding: 5px;"><app-star [rating]='movie.vote_average'></app-star></span>
+        <p class="overview">{{movie.overview}}</p>
+    </div>
 </div>

@@ -1,13 +1,12 @@
-<div style="cursor: pointer; border: 1px solid black; margin-bottom: 10px;" 
-    [routerLink]="['/movies', movie.id]">
+<div class="card" [routerLink]="['/movies', movie.id]">
     <div>
-        <img style="display: block; margin: 10px auto"
-            [src]="'https://image.tmdb.org/t/p/w185'+movie.poster_path" alt="movie.title">
+        <img [src]="'https://image.tmdb.org/t/p/w185'+movie.poster_path" alt="movie.title">
     </div>
-    <div class="text-center">
-        <span style="color:mediumturquoise">{{movie.title}}</span>
+    <div style="margin-left: 10px;">
+        <span style="font-weight: bold;">{{movie.title}}</span>
     </div>
-    <div class="text-center">
-        Rating: <span style="font-weight: 300; font-style: bold;">{{movie.vote_average}}</span>
+    <div style="margin-left: 10px; margin-top: 10px;">
+        <app-star *ngIf="movie.vote_average" [rating]='movie.vote_average'></app-star>
+        <p *ngIf="movie.vote_average === 0">Not Rated!</p>
     </div>
 </div>

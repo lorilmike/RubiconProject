@@ -1,0 +1,25 @@
+.main {
+    margin-top: 50px;
+}
+li {
+    margin-right: 20px;
+    font-size: 20px;
+}
+li>a:hover {
+    text-decoration: none;
+}
+input {
+    font-size: 20px;
+    width: 96%;
+    margin-top: 30px;
+    margin-left: 20px;
+    border: 0px;
+    border-bottom: 2px solid grey;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: #fcfafa
+}
+.active {
+    color: red;
+    border-bottom: 2px solid red;
+}

@@ -10,9 +10,13 @@ import { DataService } from '../shared/data.service';
 export class NavbarService {
   visible: boolean;
   apiKey = '62f2c6bd77d6169d36435441643bcd11';
-  searchedTerm;
-  searchedTvshows;
-  searchedMovies;
+
+  private navItemSource = new BehaviorSubject<string>('');
+  navItem$ = this.navItemSource.asObservable();
+
+  changeNav(query: string) {
+    this.navItemSource.next(query);
+  }
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -23,13 +27,13 @@ export class NavbarService {
   show() { this.visible = true; }
 
   // method for searching through shown data
-  search<T>(searchTerm: string): Observable<T> {
+  search(searchTerm: string): Observable<any[]> {
     if (this.router.url === '/movies') {
-      return this.http.get<T>(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=` + searchTerm)
+      return this.http.get<any[]>(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=` + searchTerm)
                  .pipe(catchError(this.dataService.handleError<any>('search')));
     }
     if (this.router.url === '/tvshows') {
-      return this.http.get<T>(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&query=` + searchTerm)
+      return this.http.get<any[]>(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&query=` + searchTerm)
                  .pipe(catchError(this.dataService.handleError<any>('search')));
     }
   }

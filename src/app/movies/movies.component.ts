@@ -1,27 +1,30 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { DataService } from '../shared/data.service';
 
 import { IMovie } from '../movies/movie.model';
-import { NavbarService } from '../navbar/navbar.service';
+import { NavbarService } from '../shared/navbar.service';
 
-import { FilterPipe } from '../shared/filter.pipe';
+// tslint:disable-next-line:import-blacklist
+import { Subscription } from 'rxjs';
 
 @Component({
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
+  term: string;
   movies;
-  tenMovies: any[];
-  searchedMovies: any[];
+  tenMovies;
+  searchedMovies;
+  subscription: Subscription;
   showMovies = true;
 
   constructor(private dataService: DataService,
               private route: ActivatedRoute,
-              private router: Router,
-              private nav: NavbarService) {}
+              private nav: NavbarService) {
+              }
 
   clicked() {
     this.nav.hide();
@@ -29,18 +32,31 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit() {
     this.nav.show();
+    this.gettingSearchedMovies();
+  }
 
-    if (this.nav.searchedMovies && this.nav.searchedTerm.length > 2) {
-      this.searchedMovies = this.nav.searchedMovies;
-      this.searchedMovies = this.searchedMovies.filter(searchedMovie => {
-        return searchedMovie.poster_path !== null;
-      });
-      console.log(this.searchedMovies);
-      this.showMovies = false;
-    } else {
-      this.movies = this.route.snapshot.data['movies']; // used for getting data through resolve service
-      this.tenMovies = this.movies.results;
-      this.tenMovies = this.tenMovies.slice(0, 10);
-    }
+  gettingSearchedMovies() {
+    this.subscription = this.nav.navItem$.debounceTime(400)
+                                         .distinctUntilChanged()
+                                         .subscribe(
+    term => {
+      this.term = term;
+      if (this.term.length >= 3) {
+          this.searchedMovies = this.nav.search(this.term).subscribe(data => {
+          this.searchedMovies = data;
+          this.searchedMovies = this.searchedMovies.results;
+          this.searchedMovies = this.searchedMovies.filter((searchedItem => {
+              return searchedItem.poster_path !== null &&
+                     searchedItem.title.toLocaleLowerCase().indexOf(this.term) !== -1;
+          }));
+        this.showMovies = false;
+        });
+      } else {
+        this.movies = this.route.snapshot.data['movies']; // used for getting data through resolve service
+        this.tenMovies = this.movies.results;
+        this.tenMovies = this.tenMovies.slice(0, 10);
+        this.showMovies = true;
+      }
+    });
   }
 }
