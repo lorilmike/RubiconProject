@@ -1,8 +1,10 @@
 # Rubicon Project
 
-This project was created as assignment for job application!
+This project was created as assignment for job application using Angular and Angular CLI!
 
 Showcase usage of things used for getting this project done:
+
+  - Bootstrap4
   - Components
   - Services
   - Dependency Injection
