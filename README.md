@@ -2,6 +2,18 @@
 
 This project was created as assignment for job application!
 
+Showcase usage of things used for getting this project done:
+  - Components
+  - Services
+  - Dependency Injection
+  - Different bindings (interpolation, property, event, two-way)
+  - Separation of Concern
+  - Behavior Subject
+  - Routing
+  - Pipes
+  - Interfaces
+  - HttpClient (getting API from TMDB - TheMovieDataBase)
+  
 # Getting Project
 
 Git clone https://github.com/RedzepovicSanin/RubiconProject to your folder and open it.
@@ -22,4 +34,3 @@ This is only for production!
 ### IMPORTANT
 
 While application looks just fine, and everything is functioning as it should, sometimes there are some console log errors that I couldn't fix, but they don't make any impact on application or project overall.
-I hope in that somebody from Rubicon might explain those if I get a job. Thanks in advance!
