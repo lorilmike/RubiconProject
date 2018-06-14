@@ -12,7 +12,7 @@ Showcase usage of things used for getting this project done:
   - Routing
   - Pipes
   - Interfaces
-  - HttpClient (getting API from TMDB - TheMovieDataBase)
+  - RxJS and Observables (getting API from TMDB - TheMovieDataBase)
   
 # Getting Project
 
